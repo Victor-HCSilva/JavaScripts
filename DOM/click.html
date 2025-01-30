@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação - [Nome da Pessoa]</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+        .contact-info {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--
+        <img src="URL_DA_SUA_FOTO.jpg" alt="Foto de [Nome da Pessoa]">
+        -->
+        <h1>page 6</h1>
+        <h1>Olá, eu sou [Nome da Pessoa]</h1>
+        <h2>Sobre Mim</h2>
+        <p>
+            [Escreva aqui uma breve descrição sobre você. 
+            Pode incluir sua área de atuação, seus interesses, etc. 
+            Use este espaço para se apresentar e dar uma visão geral de quem você é.]
+        </p>
+        
+        <h2>Habilidades</h2>
+        <ul>
+            <li>[Habilidade 1]</li>
+            <li>[Habilidade 2]</li>
+            <li>[Habilidade 3]</li>
+            <!-- Adicione quantas habilidades desejar -->
+        </ul>
+      
+        <h2>Experiência</h2>
+        <p>
+            [Escreva aqui sobre sua experiência profissional ou acadêmica. Se não tiver muita experiência, pode falar sobre projetos ou atividades relevantes.]
+        </p>
+        
+        <div class="contact-info" id="o_id">
+            <h2>Contato</h2>
+            <p>Email: <a href="mailto:seuemail@email.com">seuemail@email.com</a></p>
+            <p>LinkedIn: <a href="LINK_DO_SEU_LINKEDIN">Seu LinkedIn</a></p>
+            <p>GitHub: <a href="LINK_DO_SEU_GITHUB">Seu GitHub</a></p>
+            <!-- Adicione outras formas de contato que desejar -->
+        </div>
+        <button id="btn">Aperte-me</button>
+        <a id ="a" href="#">Aperte-me</a>
+    </div>
+
+    <script>
+        const button = document.querySelector("#btn")
+
+        button.addEventListener('click',()=>{
+            console.log('Clicou !')
+        })
+
+        const hl = document.querySelector("#a")
+
+        hl.addEventListener('click',(event)=>{
+            event.preventDefault() //elemento não faz o que deve, se fosse um link não redicionaria
+            console.log('Clicou no HL!')
+        })
+
+    </script>
+
+</body>
+</html>

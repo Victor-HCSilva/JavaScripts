@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .title {
+        color: green;
+        font-size: 3rem
+    }
+</style>
+<body>
+    <h1>10 - pag</h1>
+    <h3 class="title" id="t">Ola mundo!</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur repudiandae hic aut aliquam, dicta dignissimos a unde, harum obcaecati modi, sit ex est cupiditate animi eveniet. Quo itaque aspernatur deserunt!</p>
+    <button id="change-color">Aperte-me</button>
+
+    <script>
+        const t = document.querySelector("#t")
+        const btn = document.querySelector("#change-color")
+
+        btn.addEventListener('click',(event) => {
+            //contains -> Se o elemento tem a class especificada
+            //ESTE BLOCO DE CÓDIGO, FUNCOIONA, MAS EXISTE ALGO MELHOR (toglle)
+            /*if(t.classList.contains("title") ){
+                t.classList.remove("title")
+            } else {
+                t.classList.add("title")
+            }*/
+            t.classList.toggle("title")
+        })
+    </script>
+
+</body>
+</html>

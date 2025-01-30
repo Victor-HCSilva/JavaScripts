@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>8 pag</h1>
+    <!--enviar informações - method get-->
+    <form action="https://www.google.com/search" method="get">
+        <label for="q">Busca</label>
+        <input type="text" name="q">
+        <input type="submit" value="pesquisar">
+    </form>
+
+    <script>
+        const form = document.querySelector("form")
+
+        form.addEventListener("submit", (event) => {
+            const query = event.target.querySelector("input[name=q]").value
+            
+            //vendo o valor do formulário
+            console.log("Query: ", query )
+
+            //A pesquisa não dipara quando estiver me branco
+            if(!query){
+                event.preventDefault()
+                alert('Não existe nada no campo de busca')
+            }
+
+        })
+    </script>
+
+</body>
+</html>

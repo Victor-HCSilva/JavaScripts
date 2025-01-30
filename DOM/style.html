@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>9 - pag</h1>
+    <h3 id="t">Ola mundo!</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur repudiandae hic aut aliquam, dicta dignissimos a unde, harum obcaecati modi, sit ex est cupiditate animi eveniet. Quo itaque aspernatur deserunt!</p>
+    <button id="change-color">Aperte-me</button>
+
+    <script>
+        const btn = document.querySelector("#change-color")
+        const t = document.querySelector("#t")
+
+        btn.addEventListener('click',() => {
+            document.body.style = "Background: blue; font-size:3rem"
+            //TAMBÉM ESTA CORRETO
+            //document.body.style.background = "blue;"
+        })
+    </script>
+
+</body>
+</html>

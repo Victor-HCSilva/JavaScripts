@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Olha-me .-.</p>
+    
+<button id="btn">ntb
+
+</button>
+
+    <script>
+
+        const teste = document.querySelector("p")
+        const btn = document.querySelector("#btn")
+
+        btn.addEventListener("click", () => {
+        console.log('clicou')
+        let count = 0;
+        let i = 0;
+        const condition = 12000;
+
+        function processLoop() {
+            if (i < condition) {
+                if (i % 500 === 1) {
+                    console.log(i);
+                }
+                i++;
+                setTimeout(processLoop, 1); // Pausa de 1ms
+            }
+        }
+        processLoop();
+        })
+    </script>
+</body>
+</html>

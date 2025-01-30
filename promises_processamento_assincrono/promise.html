@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ola, mundo</h1>
+    <button>Executar</button>
+    <script>
+        function testPromise (){
+            console.log('Inicio');
+         
+            //funcao assincrona (3s):
+            // Estrutura -->> setTimeout(função, tempo)
+
+            //Atribuindo a função á uma variável:
+            let count =  0;
+            const p1 = new Promise((resolve, reject) => {
+
+                const pCount = ++count
+                setTimeout(() => { 
+                    console.log('assincrono') 
+                    //processo deu certo
+                    //resolve(pCount)
+
+                    //processo deu errado:
+                    reject(pCount)
+
+                }, 1000)
+            })
+            
+            //quando a função contida em p1 for terminada, then ira ser executado:
+            p1.then((pCount) => {//then recebe o valor dado a função resolve
+                console.log(`processo terminado, ${pCount}`)
+            })
+            .cath(() => {//Cath captura algum erro caso exista:
+                console.error('erro')
+            })
+            
+
+            console.log('Fim');
+        }
+
+        const btn = document.querySelector("button", testPromise);
+
+        btn.addEventListener("click",testPromise);
+        /*
+        Promise é um objeto usado para processamento assíncrono, Uma Promise de ("promessa")
+        representa um valor que pode etsar disponivel agora, no futuro ou nunca
+        */
+        //Uma promise está em um destes estados:
+        //pending (pendente): Estado inicial, que não fou realizado nem rejeitada
+        //fulfilled (realizada): secesso na operacao.
+        //rejected(rejeitada): falha na operacao
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "name":"Felipe Fontoura",
+    "age":40,
+    "address":
+    {
+        "street":"Rua Central",
+        "number":"100",
+        "complement":"",
+        "district":"Centro",
+        "city":"São Paulo",
+        "state":"São Paulo"
+    }
+}

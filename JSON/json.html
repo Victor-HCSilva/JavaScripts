@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ola mundo</h1>
+    <script>
+
+        const person = {
+            name: "Felipe Fontoura",
+            age: 40,
+            address: {
+                street: "Rua Central",
+                number: "100",
+                complement:"",
+                district: "Centro",
+                city: "São Paulo",
+                state: "São Paulo",
+            },
+            
+        }
+        console.log(typeof person)
+        console.log(person) 
+
+        //De Json para String
+        const personStr = JSON.stringify(person)
+        
+        console.log(personStr)
+        //PROCESSO REVERSO
+        const objPerson = JSON.parse(personStr)
+        console.log(typeof objPerson)
+        
+    </script>
+</body>
+</html>

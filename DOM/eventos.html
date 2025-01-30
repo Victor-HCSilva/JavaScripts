@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação - [Nome da Pessoa]</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+        .contact-info {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <script>
+       const f1 = () => {
+            console.log("Função 1")
+        }
+
+        const f2 = () => {
+            const t = document.querySelector("#nome");
+            console.log("Funcao 2:", t)
+        }
+
+        const main = (f1, f2) => {
+            f1();
+            f2();
+            return [f1,f2]
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            main(f1, f2);
+        });
+        </script>
+
+        <h1>page 5</h1>
+        <h1 id="nome">Olá, eu sou [Nome da Pessoa]</h1>
+        <h2>Sobre Mim</h2>
+      
+    <script>
+
+    </script>
+
+</body>
+</html>

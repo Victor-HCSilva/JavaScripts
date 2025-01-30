@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ola, mundo</h1>
+    <button>Executar</button>
+    <script>
+        function testPromise (){
+            console.log('Inicio');
+            let count =  0;
+
+            const p1 = new Promise((resolve, reject) => {
+                setTimeout(() => { 
+                    console.log('assincrono') 
+                    //processo deu certo
+                    resolve(1)
+                }, 1000)
+            })
+
+            const p2 = new Promise((resolve, reject) => {
+                setTimeout(() => { 
+                    console.log('assincrono') 
+                    //processo deu certo
+                    resolve(2)
+                }, 1000)
+            })
+            const p3 = new Promise((resolve, reject) => {
+                setTimeout(() => { 
+                    console.log('assincrono') 
+                    //processo deu certo
+                    reject(3)
+                }, 1000)
+            })
+            //Para não fazer isso p/ n promises, existe o Promise.all
+            /*p1.then(() => {
+                p2.then(() => {
+                    p3.then(() => {
+                    console.log('Resultado final após chamada de 3 promises')
+                    })
+                })
+            })*/
+            //Quando o ultmo resolve for chamado
+           Promise.all([p1,p2,p3]).then((values)=>{
+                console.log('promise values', values)
+           }).catch(() => {
+            console.error('promises errors:',)
+           })
+
+            console.log('Fim');
+        }
+
+        const btn = document.querySelector("button", testPromise);
+        btn.addEventListener("click",testPromise);
+        /*
+        Promise é um objeto usado para processamento assíncrono, Uma Promise de ("promessa")
+        representa um valor que pode etsar disponivel agora, no futuro ou nunca
+        */
+        //Uma promise está em um destes estados:
+        //pending (pendente): Estado inicial, que não fou realizado nem rejeitada
+        //fulfilled (realizada): secesso na operacao.
+        //rejected(rejeitada): falha na operacao
+
+
+
+    </script>
+</body>
+</html>

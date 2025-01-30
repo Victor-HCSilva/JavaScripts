@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos Keydown - 7</h1>
+
+    <input type="text">
+    <script>
+        const input = document.querySelector("input[type=text]")
+
+        input.addEventListener('keydown', (event) => {
+            console.log(`Event: ${event.key} - ${event.keyCode}`)
+            if(event.keyCode === 13){
+
+                alert(`Clicou ENTER -  ${input.value}`) //evento de enviar o texto
+            }
+        })
+        //KEY UP OCORRE AO DEIXAR DE PRESSIONAR A TECLA
+        /*input.addEventListener('keyup', (event) => {
+            console.log('keyUp')
+        })*/
+    </script>
+
+</body>
+</html>
