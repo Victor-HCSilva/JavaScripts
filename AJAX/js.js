@@ -18,7 +18,7 @@ const loadData = () => {
                 const avatar_el = document.createElement("img")
                 avatar_el.setAttribute("src", avatar)
                 avatar_el.setAttribute("width", "128")
-
+                avatar_el.style = "border-radius:100%;"
                 const name_el = document.createElement("h1")
                 name_el.textContent = name; // Usando textContent para segurança
 
@@ -33,6 +33,8 @@ const loadData = () => {
                 document.body.appendChild(name_el);
                 document.body.appendChild(followers_el)
                 document.body.appendChild(blog_el)
+                
+                
             } catch (error) {
                 console.error("Erro ao analisar o JSON:", error)
             }
@@ -46,6 +48,7 @@ const loadData = () => {
     }
 
     xhr.send(null)
+    
 }
 
 btn.addEventListener("click", loadData)

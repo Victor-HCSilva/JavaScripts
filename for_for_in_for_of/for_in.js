@@ -4,7 +4,6 @@ const frutas = {
     'fruta3':'laranja',
 }
 
-
 for(const i in frutas){
     console.log(frutas[i]) //output - > bananas 
                             //          maca

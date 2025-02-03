@@ -30,5 +30,5 @@ pessoas.splice(1,2)
 
 //localicar elementos
 let index = pessoas.indexOf('Victor')
-pessoas.splice(index, 1)//indicie e a quantidade qu vai remover
+pessoas.splice(index, 1)//indicie e a quantidade que vai remover
 console.log(index)
