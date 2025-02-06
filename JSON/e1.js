@@ -1,8 +1,6 @@
 //Objetos para - > strings ; Strings para -> Objetos
 const people = [
-{
-    },
-        {
+    {
         id: 1,
         name: "Felipe",
         lastName: "Fontoura",
@@ -10,7 +8,6 @@ const people = [
         address: {
             city: "são josé dos campos",
         },
-        city: "São José dos Campos",
         id: 2,
         name: "Eduardo",
         lastName: "Moraes",
@@ -18,12 +15,11 @@ const people = [
         address: {
             city: "Recife",
         },
-    }
+    }//we are champions
+    //Nos somos campeões
 ]
 
-
-//console.log(JSON.stringify(people)) // tipo String
-
+console.log(people) // tipo String
 const json = JSON.stringify(people)
 
 //transformando em obj novamente
