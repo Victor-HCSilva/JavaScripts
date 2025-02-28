@@ -1,3 +1,6 @@
+///Se for adicionar a mecanica de escolha do  tema é necessario criar um menu com as escolhas
+//possiveis
+//
 const body:HTMLBodyElement = document.querySelector("body") || null;
 const palavra: HTMLSpanElement = document.querySelector("#palavra") || null;
 const menssagem: HTMLSpanElement = document.querySelector("#menssagem") || null;
@@ -5,15 +8,18 @@ const btn: HTMLInputElement = document.querySelector("#btn");
 const btn_reset: HTMLButtonElement = document.querySelector("#btn_reset");
 const chute: HTMLInputElement = document.querySelector("#chute");
 const erros_label: HTMLSpanElement = document.querySelector("#erros");
+const tema:HTMLSpanElement = document.querySelector("#tema");
+const errou_palavra_label:HTMLSpanElement = document.querySelector("#errou_palavra");
+
 
 document.addEventListener("DOMContentLoaded", () => {
     function esconde_palavra(palavra:string): string{
-        let palavra_escondida:string = ""; 
-    
+        let palavra_escondida:string = "";
+
         for( let i in palavra.split('')){
             palavra_escondida = palavra_escondida+'_';
         }
-    
+
         return palavra_escondida;
     }
     function tamanho_palavra(palavra:string): number{
@@ -37,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 //console.log('Falso:',palavra[i] === letra)
             }
-            
+
         }
         return false;
     }
-    
+
     let frutas: Array<string> = [
         "maca",
         "banana",
@@ -51,18 +57,18 @@ document.addEventListener("DOMContentLoaded", () => {
         "manga",
         "abacaxi",
         "melancia",
-        "kiwi", 
+        "kiwi",
         "pessego",
         "amora",
-        "coco",          
-        "abacate",       
-        "framboesa",     
-        "cereja",        
-        "goiaba",        
-        "graviola",      
-        "tangerina",     
-        "limao",         
-        "maracuja",      
+        "coco",
+        "abacate",
+        "framboesa",
+        "cereja",
+        "goiaba",
+        "graviola",
+        "tangerina",
+        "limao",
+        "maracuja",
         "ameixa",
         "melao",
         "acerola",
@@ -93,54 +99,64 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         const chuteValue:string = chute.value;
-        
+        let acertou: boolean = false;//flag para perder chances
+
         for(i = 0; i < size; i++ ){
             if(palavra_aleatoria.split("")[i] == chuteValue){
                 palavra_escondida[i] = chuteValue;//.toUpperCase();
+                acertou = true;
             }
         }
+        //se errou pede 1 chance
+        if (acertou === false){
+            chances-=1;
+        }
+
         if(existe_letra(chuteValue, palavra_aleatoria.split(""))){
             acertos.push(chuteValue)
-        } else {    
-            
-            if(chuteValue){
+        } else {
+
+            if(chuteValue && chuteValue != palavra_aleatoria){
                 if(chuteValue.length === 0){//A primeira palavra errada sempre será adiconada
                     erros.push(chuteValue.toUpperCase())
                 } else {
-                    if(!existe_letra(chuteValue, erros)){//verfica se o erro ja esta nos erros cometidos
-                        erros.push(chuteValue.toUpperCase())
+                    if(!existe_letra(chuteValue, erros) && chuteValue != palavra_aleatoria){//verfica se o erro ja esta nos erros cometidos
+                        erros.push(chuteValue.toUpperCase());
                     }
                 }
             }
-            
         }
-        tentativas++;
+        // Se o jogador tentou uma palavra mas errou!
+        if (chuteValue.length > 1 && chuteValue != palavra_aleatoria){
+            chances-=1;
+            errou_palavra_label.innerHTML = "Você errou a palavra, perdeu 2 chances";
+        }
 
-        if(palavra_escondida.join("") === palavra_aleatoria){
+        if(palavra_escondida.join("") === palavra_aleatoria || chuteValue == palavra_aleatoria){
             venceu = true;
+            palavra_escondida = palavra_aleatoria.split("");
         }
-        if(chances > 0 && chuteValue){
 
-            erros_label.innerHTML = `Erros: ${erros.join(" - ")}`
-            chances--;
-            
-            if(chances === 0 || venceu){
-                btn_reset.style.display = 'inline-block';
-                let mensagem:string = venceu ? "Parabéns "+" voce acertou em "+ tentativas +
-                " tentativas a palavra <strong>"+palavra_escondida.join(" ").toUpperCase():"<strong/>Fim de jogo a palavra era: "+palavra_aleatoria.toUpperCase();
+        erros_label.innerHTML = `Erros: ${erros.join(" - ")}`
 
-                if(venceu){
-                    menssagem.style.color = "green";
-                } else {
-                    menssagem.style.color = "red";
-                }
-                menssagem.innerHTML = mensagem;
+        if(chances <= 0 || venceu){
+            tentativas++;
+            btn_reset.style.display = 'inline-block';
+            let mensagem:string = venceu ? "Parabéns "+" voce acertou em "+ tentativas +
+            " tentativa(s) a palavra <strong>"+palavra_aleatoria.toUpperCase():"<strong/>Fim de jogo a palavra era: "+palavra_aleatoria.toUpperCase();
+
+            if(venceu){
+                menssagem.style.color = "green";
+            } else {
+                menssagem.style.color = "red";
             }
+            menssagem.innerHTML = mensagem;
         }
-        
+
         palavra.innerHTML = `${palavra_escondida.join(" ").toUpperCase()} <br><br>Chances restantes: ${chances}`;
         chute.value = "";
     })
+
     function recomecar(){
         chances = size+4;
         chute.value = "";
@@ -152,10 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
         venceu = false;
         erros = [];
         acertos = [];
-        erros_label.innerHTML = "";   
+        erros_label.innerHTML = "";
     }
 
     btn_reset.addEventListener("click", recomecar);
-    
-
   });

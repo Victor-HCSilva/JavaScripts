@@ -42,41 +42,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return false;
     }
-    var frutas = [
-        "maca",
-        "banana",
-        "laranja",
-        "morango",
-        "uva",
-        "manga",
-        "abacaxi",
-        "melancia",
-        "kiwi",
-        "pessego",
-        "amora",
-        "coco",
-        "abacate",
-        "framboesa",
-        "cereja",
-        "goiaba",
-        "graviola",
-        "tangerina",
-        "limao",
-        "maracuja",
-        "ameixa",
-        "melao",
-        "acerola",
-        "caju",
-        "roma",
-        "figo",
-        "damasco",
-        "nectarina",
-        "lichia",
-        "quina",
-        "tamara"
-    ];
-    var indice = numeroAleatorioEntre(0, frutas.length - 1);
-    var palavra_aleatoria = frutas[indice]; //-> manga
+    const lugares = [
+  "Amazonia",
+  "Saara",
+  "Iguacu",
+  "BarreiraDeCoral",
+  "Everest",
+  "AuroraBoreal",
+  "Fiordes",
+  "MachuPicchu",
+  "Pompeia",
+  "EstátuaLiberdade",
+  "MuralhaChina",
+  "ColiseuRoma",
+  "TajMahal",
+  "PiramidesGize",
+  "Stonehenge",
+  "Moais",
+  "Pantanal",
+  "SalarUyuni",
+  "GrandCanyon",
+  "Yellowstone",
+  "Kilauea",
+  "PeritoMoreno",
+  "Copacabana",
+  "TimesSquare",
+  "TorreEiffel",
+  "RioNilo",
+  "LagoBaikal",
+  "SelvaBorneo",
+  "TemplosAngkor",
+  "Veneza",
+  "Dubai",
+  "Tokyo",
+  "Chernobyl",
+  "Kilimanjaro"
+];
+
+console.log(lugares);
+   var indice = numeroAleatorioEntre(0, lugares.length - 1);
+    var palavra_aleatoria = lugares[indice]; //-> manga
     var palavra_escondida = esconde_palavra(palavra_aleatoria).split("");
     var size = tamanho_palavra(palavra_aleatoria); //size com tamanho errado
     var chances = size + 4; //sempre 4 nº de chances a mais
@@ -144,8 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function recomecar() {
         chances = size + 4;
         chute.value = "";
-        indice = numeroAleatorioEntre(0, frutas.length - 1);
-        palavra_aleatoria = frutas[indice]; //-> manga
+        indice = numeroAleatorioEntre(0, lugares.length - 1);
+        palavra_aleatoria = lugares[indice]; 
         palavra_escondida = esconde_palavra(palavra_aleatoria).split("");
         palavra.innerHTML = palavra_escondida.join(" ").toUpperCase();
         menssagem.innerHTML = " ";
